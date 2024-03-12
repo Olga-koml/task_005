@@ -1,5 +1,7 @@
 #include <stdio.h>
+
 #include <stdlib.h>
+
 #include "house_calc.h"
 
 void calculate_house_cost(int width, int len, int height, int budget) {
