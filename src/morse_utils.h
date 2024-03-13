@@ -4,9 +4,9 @@
 #define LEN_ABC_DIG 36
 #define LEN_ABC 26
 
-void encode_to_morse_and_print(char *str);
-int find_morse_index(const char* morse);
+void encode_to_morse_and_print(char * str);
+int find_morse_index(const char * morse);
 void print_error();
-void decode_from_morse(char* str);
+void decode_from_morse(char * str);
 
 #endif
