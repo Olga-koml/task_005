@@ -12,14 +12,18 @@ const char* morse_abc[] = {".-",    "-...",  "-.-.",  "-..",   ".",     "..-.", 
 
 void encode_to_morse_and_print(char* str) {
     int len_str = strlen(str);
+    if (len_str > 0 && str[len_str - 1] == '\n') {
+        str[len_str - 1] = '\0';
+        len_str--;
+    }
     for (int i = 0; i < len_str; i++) {
         if (str[i] == ' ') {
             printf("\t");
         } else {
             if (isdigit(str[i])) {
-                printf(morse_abc[str[i] - '0' + LEN_ABC]);
+                printf("%s", morse_abc[str[i] - '0' + LEN_ABC]);
             } else {
-                printf(morse_abc[toupper(str[i]) - 'A']);
+                printf("%s", morse_abc[toupper(str[i]) - 'A']);
             }
             if (i < len_str - 1) {
                 printf(" ");
