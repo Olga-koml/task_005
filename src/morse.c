@@ -3,7 +3,6 @@
 #include "morse_utils.h"
 
 int main() {
-
     char str[250];
     int command;
     char c;
@@ -23,7 +22,7 @@ int main() {
                 print_error();
             }
         }
-    } else { 
+    } else {
         print_error();
     }
 

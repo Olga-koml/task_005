@@ -1,18 +1,16 @@
-#include "morse_utils.h"
-
 #include <ctype.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-const char * morse_abc[] = {
-    ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---",
-    "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-",
-    "..-", "...-", ".--", "-..-", "-.--", "--..",
-    "-----", ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----."
-};
+#include "morse_utils.h"
 
-void encode_to_morse_and_print(char * str) {
+const char* morse_abc[] = {".-",    "-...",  "-.-.",  "-..",   ".",     "..-.",  "--.",   "....",  "..",
+                           ".---",  "-.-",   ".-..",  "--",    "-.",    "---",   ".--.",  "--.-",  ".-.",
+                           "...",   "-",     "..-",   "...-",  ".--",   "-..-",  "-.--",  "--..",  "-----",
+                           ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----."};
+
+void encode_to_morse_and_print(char* str) {
     int len_str = strlen(str);
     for (int i = 0; i < len_str; i++) {
         if (str[i] == ' ') {
@@ -25,14 +23,12 @@ void encode_to_morse_and_print(char * str) {
             }
             if (i < len_str - 1) {
                 printf(" ");
-            } 
+            }
         }
     }
-
 }
 
-int find_morse_index(const char * morse) {
-   
+int find_morse_index(const char* morse) {
     for (int i = 0; i < LEN_ABC_DIG; ++i) {
         if (strcmp(morse, morse_abc[i]) == 0) {
             return i;
@@ -46,7 +42,7 @@ void print_error() {
     exit(EXIT_FAILURE);
 }
 
-void decode_from_morse(char * str) {
+void decode_from_morse(char* str) {
     char* token = strtok(str, " \t\n");
     while (token != NULL) {
         int index = find_morse_index(token);
