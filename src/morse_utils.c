@@ -14,14 +14,14 @@ const char *morse_abc[] = {
 
 void encode_to_morse_and_print(char * str) {
     int len_str = strlen(str);
-    for(int i = 0; i < len_str; i++) {
+    for (int i = 0; i < len_str; i++) {
         if (str[i] == ' ') {
             printf("\t");
         } else {
             if (isdigit(str[i])) {
-                printf(morse_abc[str[i]-'0' + LEN_ABC]);
+                printf(morse_abc[str[i] - '0' + LEN_ABC]);
             } else {
-                printf(morse_abc[toupper(str[i])-'A']);
+                printf(morse_abc[toupper(str[i]) - 'A']);
             }
             if (i < len_str - 1) {
                 printf(" ");
